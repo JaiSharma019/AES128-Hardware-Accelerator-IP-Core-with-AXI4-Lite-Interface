@@ -36,7 +36,7 @@ module aes #(
     // initialising the S-Box memory
     reg [7:0] sbox [0:255];
     initial begin
-        $readmemh("sbox.mem", sbox);
+        $readmemh("rtl/sbox.mem", sbox);
     end
 
     // galois function for multiplying 2

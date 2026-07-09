@@ -280,20 +280,20 @@ module top_steady_tb;
         
         for (i = 0; i < 100; i = i + 1) begin
             if (i % 3 == 0) begin // Pattern A: FIPS
-                read_mem((i*16) + 32'h00, read_val); if (read_val != 32'h196a0b32) error_count = error_count + 1;
-                read_mem((i*16) + 32'h04, read_val); if (read_val != 32'hdc118597) error_count = error_count + 1;
-                read_mem((i*16) + 32'h08, read_val); if (read_val != 32'h02dc09fb) error_count = error_count + 1;
-                read_mem((i*16) + 32'h0C, read_val); if (read_val != 32'h3925841d) error_count = error_count + 1;
+                read_mem((i*16) + 32'h00, read_val); if (read_val !== 32'h196a0b32) error_count = error_count + 1;
+                read_mem((i*16) + 32'h04, read_val); if (read_val !== 32'hdc118597) error_count = error_count + 1;
+                read_mem((i*16) + 32'h08, read_val); if (read_val !== 32'h02dc09fb) error_count = error_count + 1;
+                read_mem((i*16) + 32'h0C, read_val); if (read_val !== 32'h3925841d) error_count = error_count + 1;
             end else if (i % 3 == 1) begin // Pattern B: Zeros
-                read_mem((i*16) + 32'h00, read_val); if (read_val != 32'hb91b546f) error_count = error_count + 1;
-                read_mem((i*16) + 32'h04, read_val); if (read_val != 32'h3e42f047) error_count = error_count + 1;
-                read_mem((i*16) + 32'h08, read_val); if (read_val != 32'h1ab899b3) error_count = error_count + 1;
-                read_mem((i*16) + 32'h0C, read_val); if (read_val != 32'h7df76b0c) error_count = error_count + 1;
+                read_mem((i*16) + 32'h00, read_val); if (read_val !== 32'hb91b546f) error_count = error_count + 1;
+                read_mem((i*16) + 32'h04, read_val); if (read_val !== 32'h3e42f047) error_count = error_count + 1;
+                read_mem((i*16) + 32'h08, read_val); if (read_val !== 32'h1ab899b3) error_count = error_count + 1;
+                read_mem((i*16) + 32'h0C, read_val); if (read_val !== 32'h7df76b0c) error_count = error_count + 1;
             end else begin // Pattern C: Sequential
-                read_mem((i*16) + 32'h00, read_val); if (read_val != 32'hd6e4d64b) error_count = error_count + 1;
-                read_mem((i*16) + 32'h04, read_val); if (read_val != 32'h27d8d055) error_count = error_count + 1;
-                read_mem((i*16) + 32'h08, read_val); if (read_val != 32'hc5c7573a) error_count = error_count + 1;
-                read_mem((i*16) + 32'h0C, read_val); if (read_val != 32'h8df4e9aa) error_count = error_count + 1;
+                read_mem((i*16) + 32'h00, read_val); if (read_val !== 32'hd6e4d64b) error_count = error_count + 1;
+                read_mem((i*16) + 32'h04, read_val); if (read_val !== 32'h27d8d055) error_count = error_count + 1;
+                read_mem((i*16) + 32'h08, read_val); if (read_val !== 32'hc5c7573a) error_count = error_count + 1;
+                read_mem((i*16) + 32'h0C, read_val); if (read_val !== 32'h8df4e9aa) error_count = error_count + 1;
             end
         end
 
