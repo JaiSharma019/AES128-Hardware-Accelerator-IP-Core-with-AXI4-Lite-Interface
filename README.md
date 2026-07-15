@@ -26,7 +26,9 @@ It consists of the `aes_top.v`, `aes.v`, `axi_aes.v` and `axi_ctrl.v`, along wit
 
 * Every round consists of substituting bytes, shifting rows, mixing columns (except for last round) and XORing round subkey, and for key expansion galois function is used. These operations are done using the functions and generate features of Verilog so the math is implemented as pure combinational in between pipeline registers, as the data width is already known.
 
-![Piplelining Reference Image](image.png)
+<p align="center">
+  <img src="image.png" width="250">
+</p>
 
 * Collects the plaintexts, key, start and other control signals from master interface and giving stalls, ready signals and ciphertext to it, and key valid signal from slave interface and outputting status to it.
 
