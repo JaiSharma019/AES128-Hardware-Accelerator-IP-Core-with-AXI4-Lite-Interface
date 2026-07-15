@@ -115,7 +115,6 @@ module aes #(
             end
         end
     end
-
     
     // round 0
     always@(posedge clk or negedge aresetn) begin 
@@ -685,7 +684,7 @@ module aes #(
         if (!aresetn) begin 
             subkey3 <= 128'b0;
         end
-        else if(!stall && !stall1 & key_valid) begin 
+        else if(!stall && !stall1 && key_valid) begin 
             if (validR[2]) begin 
                 subkey3 <= next_subkey(subkey2, RC[31:24]);
             end
