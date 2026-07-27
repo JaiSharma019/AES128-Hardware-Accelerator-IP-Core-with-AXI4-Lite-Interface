@@ -68,9 +68,9 @@ Implemented a dual port slave memory which would model and help in testing the w
 
 ### Testbenches and Results
 
-* There are three separate testbenches to separately test and gather the performance reports for the stable steady state, backpressure and midflight key switch cases, with 100 FIPS-197 test vectors.
+* There are three separate testbenches to separately test and gather the performance reports for the stable steady state, backpressure and midflight key switch cases, with 100 algorithmically generated checked against FIPS-197 compliant reference.
 
-* `top_steady_tb.v` - Tests for case where the the slave memory is always ready to output the data once fed in with the plaintexts by processor and always ready to take in the ciphertext from the AES module, thus creating no stalling or error condition anywhere thorughout the system. Thus achieving 3.055 Gbps throughput as per the testbench calculation.
+* `top_steady_tb.v` - Tests for case where the the slave memory is always ready to output the data once fed in with the plaintexts by processor and always ready to take in the ciphertext from the AES module, thus creating no stalling or error condition anywhere thorughout the system. Thus achieving 3.055 Gbps throughput at 100 MHz as per the testbench calculation.
 
 * `top_key_switch_tb.v` - Tests for the case where the same as in steady state but with a change in key in between the process by the testbench. As we use key valid to ensure that until key is stable, the previous key is used thus we see that after 45th encryption the new key is sent as we don't stall the process the we see the new key used after 49th plaintext, with no drop in throughput.
 
